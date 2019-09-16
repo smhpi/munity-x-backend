@@ -1,25 +1,26 @@
 {
-    "name": "munity-x-backend",
-    "version": "1.0.0",
-    "description": "",
-    "main": "router.js",
-    "directories": {
-        "lib": "lib"
-    },
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "cors": "^2.8.5",
-        "express": "^4.17.1",
-        "firebase": "^6.6.1",
-        "firebase-admin": "^8.5.0",
-        "nodemon": "^1.19.2"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js",
-        "live": "nodemon server.js"
-    },
-    "author": "",
-    "license": "ISC"
+  "name": "munity-x-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "router.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "custom-env": "^1.0.2",
+    "express": "^4.17.1",
+    "firebase": "^6.6.1",
+    "firebase-admin": "^8.5.0",
+    "nodemon": "^1.19.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node mvc-server.js",
+    "live": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC"
 }
