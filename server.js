@@ -2,6 +2,8 @@ var http = require("http");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const schema = require("./data/schema");
+const GraphQLHTTP = require("express-graphql");
 const app = express();
 var admin = require("firebase-admin");
 var serviceAccount = require("./lib/scotiabank-516dd-firebase-adminsdk-jay8o-531f1e60c5.json");
@@ -10,6 +12,14 @@ app
   .use(cors({ origin: true }))
   .use(bodyParser.json())
   .use(express.static("public"));
+
+app.use(
+  "/graphql",
+  GraphQLHTTP({
+    schema,
+    graphiql: true
+  })
+);
 
 app.listen(5000, () => console.log("Listening to  port 5000"));
 
