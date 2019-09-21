@@ -13,14 +13,6 @@ app
   .use(bodyParser.json())
   .use(express.static("public"));
 
-app.use(
-  "/graphql",
-  GraphQLHTTP({
-    schema,
-    graphiql: true
-  })
-);
-
 app.listen(5000, () => console.log("Listening to  port 5000"));
 
 admin.initializeApp({
@@ -28,6 +20,14 @@ admin.initializeApp({
   databaseURL: "https://scotiabank-516dd.firebaseio.com"
 });
 let db = admin.firestore();
+
+app.use(
+  "/api/graphql",
+  GraphQLHTTP({
+    schema: schema(db),
+    graphiql: true
+  })
+);
 
 app.get("/api/links", async (req, res) => {
   try {
