@@ -19,15 +19,17 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://scotiabank-516dd.firebaseio.com"
 });
-let db = admin.firestore();
 
-app.use(
-  "/api/graphql",
-  GraphQLHTTP({
-    schema: schema(db),
-    graphiql: true
-  })
-);
+(async () => {
+  let db = await admin.firestore();
+            app.use(
+              "/api/graphql",
+              GraphQLHTTP({
+                schema: schema(db),
+                graphiql: true
+              })
+            );
+})();
 
 app.get("/api/links", async (req, res) => {
   try {
